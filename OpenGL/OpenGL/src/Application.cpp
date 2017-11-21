@@ -1,4 +1,4 @@
-#include <GL\glew.h>
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
@@ -48,20 +48,21 @@ int main(void)
 	// Then pass in the id of the buffer. 
 	glBindBuffer(GL_ARRAY_BUFFER, buffer); 
 
-	
-	
 	// Declaring the size of the buffer now.
 	// 6 floats * sizeof float type in bytes  
 	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW); 
 
 	// Enable the vertex index
-	glEnableVertexAttribArray(0); 
+	glEnableVertexAttribArray(0);
 
+	// Explaining glVertexAttribPointer: 
+	// Position of index; 
+	// Number of cordinates in a vertex position; 
+	// GL_FLOAT type we are using; 
+	// Not using normalized; 
+	// Ammount of bytes between each vertex (2 floats for one cordinate); 
+	// A pointer into an attribute; 
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0); 
-
-	
-
-	// glBindBuffer(GL_ARRAY_BUFFER, 0); 
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
